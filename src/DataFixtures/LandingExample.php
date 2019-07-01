@@ -89,8 +89,8 @@ class LandingExample extends Fixture
         $landing->setBonus($bonus);
         $action = new Action;
         $action->setName("Собери свой<br>Вита Микс!");
-        $action->setActionPic('img/img_example/action-background.jpg');
-        $action->setLogoPic('img/img_example/logo_pic.jpg');
+        $action->setActionPic('img/img_example/action-background.png');
+        $action->setLogoPic('img/img_example/logo_pic.png');
         $action->setText('<h3>
 					В акции участвуют товары различных категорий. Выберите два акционных
 					товара и третий, с наименьшей ценой, получите бесплатно.
