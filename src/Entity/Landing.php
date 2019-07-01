@@ -33,7 +33,7 @@ class Landing
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $phone;
+    private $phone = "8 800 755 00 03";
 
     /**
      * @ORM\Column(type="boolean")

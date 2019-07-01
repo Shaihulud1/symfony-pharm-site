@@ -3,11 +3,11 @@
 {% block title %}Edit About{% endblock %}
 
 {% block body %}
-    <h1>Edit About</h1>
+    <h1>Изменение описания</h1>
 
     {{ include('about/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('about_index') }}">back to list</a>
+    <a href="{{ path('about_index') }}" class="btn btn-primary">К списку</a>
 
-    {{ include('about/_delete_form.html.twig') }}
+    {{ include('about/_delete_only_form.html.twig') }}
 {% endblock %}
