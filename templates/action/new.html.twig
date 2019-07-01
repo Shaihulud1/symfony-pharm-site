@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}New Action{% endblock %}
+
+{% block body %}
+    <h1>Добавление новой акции</h1>
+
+    {{ include('action/_form.html.twig') }}
+
+    <a href="{{ path('action_index') }}" class="btn btn-primary">К списку</a>
+{% endblock %}

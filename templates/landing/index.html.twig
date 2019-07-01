@@ -3,19 +3,19 @@
 {% block title %}Landing index{% endblock %}
 
 {% block body %}
-    <h1>Landing index</h1>
+    <h1>Список лэндингов</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Code</th>
-                <th>Phone</th>
-                <th>Active</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
+                <th>Название</th>
+                <th>Код</th>
+                <th>Телефон</th>
+                <th>Активность</th>
+                <th>Дата добавление</th>
+                <th>Дата изменения</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -25,21 +25,20 @@
                 <td>{{ landing.name }}</td>
                 <td>{{ landing.code }}</td>
                 <td>{{ landing.phone }}</td>
-                <td>{{ landing.active ? 'Yes' : 'No' }}</td>
-                <td>{{ landing.createdAt ? landing.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ landing.updatedAt ? landing.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ landing.active ? 'Да' : 'Нет' }}</td>
+                <td>{{ landing.createdAt ? landing.createdAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ landing.updatedAt ? landing.updatedAt|date('d-m-Y H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('landing_show', {'id': landing.id}) }}">show</a>
-                    <a href="{{ path('landing_edit', {'id': landing.id}) }}">edit</a>
+                    {{ include('landing/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Записей еще нет</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('landing_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('landing_new') }}">Добавить</a>
 {% endblock %}

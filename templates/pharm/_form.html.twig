@@ -1,0 +1,41 @@
+<div class="vizew-login-area section-padding-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    <label>Название</label>
+                    {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.name) }}
+                </div>
+                <div class="form-group">
+                    <label>Картинка</label>
+                    {{ form_widget(form.pharm_pic, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.pharm_pic) }}
+                </div>
+                <div class="form-group">
+                    <label>Координаты</label>
+                    {{ form_widget(form.coords, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.coords) }}
+                </div>
+                <div class="form-group">
+                    <label>Тип аптеки</label>
+                    {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.type) }}
+                </div>
+                <div class="form-group">
+                    <label>Адрес</label>
+                    {{ form_widget(form.address, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.address) }}
+                </div>
+                <div class="form-group">
+                    <label>Преимущества</label>
+                    {{ form_widget(form.advantage, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.advantage) }}
+                </div>
+                    <button class="btn btn-primary">Подтвердить</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

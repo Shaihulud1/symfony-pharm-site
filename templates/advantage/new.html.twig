@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}New Advantage{% endblock %}
+
+{% block body %}
+    <h1>Добавление нового преимущества</h1>
+
+    {{ include('advantage/_form.html.twig') }}
+
+    <a href="{{ path('advantage_index') }}" class="btn btn-primary">К списку</a>
+{% endblock %}

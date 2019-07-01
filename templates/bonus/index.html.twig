@@ -1,0 +1,44 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Bonus index{% endblock %}
+
+{% block body %}
+    <h1>Bonus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Text</th>
+                <th>Label_text</th>
+                <th>Label_color</th>
+                <th>Title_color</th>
+                <th>Bonus_pic</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bonus in bonuses %}
+            <tr>
+                <td>{{ bonus.id }}</td>
+                <td>{{ bonus.name }}</td>
+                <td>{{ bonus.text }}</td>
+                <td>{{ bonus.labelText }}</td>
+                <td>{{ bonus.labelColor }}</td>
+                <td>{{ bonus.titleColor }}</td>
+                <td>{{ bonus.bonusPic }}</td>
+                <td>
+                    {{ include('bonus/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bonus_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

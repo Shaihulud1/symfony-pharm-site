@@ -1,0 +1,13 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Edit Advantage{% endblock %}
+
+{% block body %}
+    <h1>Edit Advantage</h1>
+
+    {{ include('advantage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('advantage_index') }}" class="btn btn-primary">К списку</a>
+
+    {{ include('advantage/_delete_form.html.twig') }}
+{% endblock %}

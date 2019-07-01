@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}New About{% endblock %}
+
+{% block body %}
+    <h1>Создание нового описания</h1>
+
+    {{ include('about/_form.html.twig') }}
+
+    <a href="{{ path('about_index') }}">back to list</a>
+{% endblock %}

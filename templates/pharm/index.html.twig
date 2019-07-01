@@ -1,0 +1,42 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Pharm index{% endblock %}
+
+{% block body %}
+    <h1>Pharm index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Pharm_pic</th>
+                <th>Coords</th>
+                <th>Type</th>
+                <th>Address</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pharm in pharms %}
+            <tr>
+                <td>{{ pharm.id }}</td>
+                <td>{{ pharm.name }}</td>
+                <td>{{ pharm.pharmPic }}</td>
+                <td>{{ pharm.coords }}</td>
+                <td>{{ pharm.type }}</td>
+                <td>{{ pharm.address }}</td>
+                <td>
+                    {{ include('pharm/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pharm_new') }}" class="btn btn-primary">Добавить</a>
+{% endblock %}

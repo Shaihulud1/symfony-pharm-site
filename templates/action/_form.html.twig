@@ -1,0 +1,51 @@
+<div class="vizew-login-area section-padding-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    <label>Название</label>
+                    {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.name) }}
+                </div>
+                <div class="form-group">
+                    <label>Картинка</label>
+                    {{ form_widget(form.action_pic, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.action_pic) }}
+                </div>
+                <div class="form-group">
+                    <label>Логотип</label>
+                    {{ form_widget(form.logo_pic, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.logo_pic) }}
+                </div>
+                <div class="form-group">
+                    <label>Текст</label>
+                    {{ form_widget(form.text, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.text) }}
+                </div>
+                <div class="form-group">
+                    <label>Цвет плашки</label>
+                    {{ form_widget(form.label_color, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.label_color) }}
+                </div>
+                <div class="form-group">
+                    <label>Текст плашки</label>
+                    {{ form_widget(form.label_text, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.label_text) }}
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    {{ form_widget(form.url, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.url) }}
+                </div>
+                <div class="form-group">
+                    <label>Цвет текста</label>
+                    {{ form_widget(form.text_color, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.text_color) }}
+                </div>
+                    <button class="btn btn-primary">Подтвердить</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

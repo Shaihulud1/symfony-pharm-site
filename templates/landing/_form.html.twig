@@ -19,27 +19,27 @@
                     {{ form_errors(form.phone) }}
                 </div>
                 <div class="form-group">
-                    <label>О компании</label>
+                    <label>О компании (<a href="{{ path('about_new') }}">Добавить новое описание</a>)</label>
                     {{ form_widget(form.about, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.about) }}
                 </div>
                 <div class="form-group">
-                    <label>Бонусная карта</label>
+                    <label>Бонусная карта (<a href="{{ path('bonus_new') }}">Добавить новую страницу карты</a>)</label>
                     {{ form_widget(form.bonus, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.bonus) }}
                 </div>
                 <div class="form-group">
-                    <label>Акции</label>
+                    <label>Акции (<a href="{{ path('action_new') }}">Добавить новую акцию</a>)</label>
                     {{ form_widget(form.action, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.action) }}
                 </div>
                 <div class="form-group">
-                    <label>Товары</label>
+                    <label>Товары (<a href="{{ path('product_new') }}">Добавить новые товары</a>)</label>
                     {{ form_widget(form.product, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.product) }}
                 </div>
                 <div class="form-group">
-                    <label>Аптеки</label>
+                    <label>Аптеки (<a href="{{ path('pharm_new') }}">Добавить новую аптеку</a>)</label>
                     {{ form_widget(form.pharm, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.pharm) }}
                 </div>
@@ -54,4 +54,3 @@
         </div>
     </div>
 </div>
-

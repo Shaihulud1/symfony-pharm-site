@@ -48,7 +48,7 @@ class LandingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="landing_show", methods={"GET"})
+     * @Route("/admin/landing/{id}", name="landing_show", methods={"GET"})
      */
     public function show(Landing $landing): Response
     {
@@ -58,7 +58,7 @@ class LandingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="landing_edit", methods={"GET","POST"})
+     * @Route("/admin/landing/{id}/edit", name="landing_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Landing $landing): Response
     {
@@ -80,7 +80,7 @@ class LandingController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="landing_delete", methods={"DELETE"})
+     * @Route("/admin/landing/{id}", name="landing_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Landing $landing): Response
     {

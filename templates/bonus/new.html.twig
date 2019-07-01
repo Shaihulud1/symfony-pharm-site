@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}New Bonus{% endblock %}
+
+{% block body %}
+    <h1>Добавить раздел бонусной карты</h1>
+
+    {{ include('bonus/_form.html.twig') }}
+
+    <a href="{{ path('bonus_index') }}" class="btn btn-primary">К списку</a>
+{% endblock %}

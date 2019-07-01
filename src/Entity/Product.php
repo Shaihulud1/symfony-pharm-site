@@ -38,6 +38,11 @@ class Product
      */
     private $landings;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
+
     public function __construct()
     {
         $this->landings = new ArrayCollection();
@@ -108,6 +113,23 @@ class Product
             $this->landings->removeElement($landing);
             $landing->removeProduct($this);
         }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }
