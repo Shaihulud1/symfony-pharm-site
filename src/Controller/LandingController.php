@@ -14,6 +14,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class LandingController extends AbstractController
 {
     /**
+     * @Route("/landing/{code}", name="landing_page", methods={"GET"})
+     */
+    public function landingPage(Landing $landing):Response
+    {
+        return $this->render('landing/landing_page.html.twig', [
+           'landingData' => $landing,
+        ]);
+    }
+
+    /**
      * @Route("/admin/landing", name="landing_index", methods={"GET"})
      */
     public function index(LandingRepository $landingRepository): Response

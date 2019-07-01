@@ -49,7 +49,7 @@ class Pharm
     private $landings;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Advantage", inversedBy="pharms")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Advantage", inversedBy="pharms", cascade={"persist"})
      */
     private $advantage;
 

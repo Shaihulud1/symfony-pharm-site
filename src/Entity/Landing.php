@@ -51,27 +51,27 @@ class Landing
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Pharm", inversedBy="landings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Pharm", inversedBy="landings", cascade={"persist"})
      */
     private $pharm;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\About", inversedBy="landings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\About", inversedBy="landings", cascade={"persist"})
      */
     private $about;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bonus", inversedBy="landings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bonus", inversedBy="landings", cascade={"persist"})
      */
     private $bonus;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Action", inversedBy="landings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Action", inversedBy="landings", cascade={"persist"})
      */
     private $action;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="landings")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="landings", cascade={"persist"})
      */
     private $product;
 
