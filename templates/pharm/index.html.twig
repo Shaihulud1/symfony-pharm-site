@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ pharm.id }}</td>
                 <td>{{ pharm.name }}</td>
-                <td>{{ pharm.pharmPic }}</td>
+                <td><img src="{{ asset(pharm.getPharmPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>{{ pharm.coords }}</td>
                 <td>{{ pharm.type }}</td>
                 <td>{{ pharm.address }}</td>

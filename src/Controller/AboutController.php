@@ -30,8 +30,9 @@ class AboutController extends AbstractController
         $about = new About();
         $form = $this->createForm(AboutType::class, $about);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $aboutImages = $form['about_images_files']->getData();
+            dump($aboutImages);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($about);
             $entityManager->flush();
@@ -64,6 +65,16 @@ class AboutController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /*dd($form['about_images_files']);
+            $aboutImages = $form['about_images_files']->getData();
+            if($aboutImages){
+                foreach($aboutImages as $image)
+                {
+                    dump($image);
+                }
+            }
+            die($aboutImages);
+            */
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('about_index', [

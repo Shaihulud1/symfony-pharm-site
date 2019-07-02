@@ -25,8 +25,8 @@
             <tr>
                 <td>{{ action.id }}</td>
                 <td>{{ action.name }}</td>
-                <td>{{ action.actionPic }}</td>
-                <td>{{ action.logoPic }}</td>
+                <td><img src="{{ asset(action.getActionPic) }}" class="admin-img-preview" alt="Пусто"></td>
+                <td><img src="{{ asset(action.getLogoPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>{{ action.text }}</td>
                 <!-- <td>{{ action.textColor }}</td> -->
                 <td>{{ action.labelColor }}</td>

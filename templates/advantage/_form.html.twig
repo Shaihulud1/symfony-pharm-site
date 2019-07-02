@@ -10,8 +10,11 @@
             </div>
             <div class="form-group">
                 <label>Картинка</label>
-                {{ form_widget(form.adv_pic, { 'attr': {'class': 'form-control'} }) }}
-                {{ form_errors(form.adv_pic) }}
+                {{ form_widget(form.advantage_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
+                {{ form_errors(form.advantage_pic_file) }}
+                {% if advantage.getAdvPic %}
+                    <a href="{{ asset(advantage.getAdvPic) }}" target="_blank">Текущая картинка</a>
+                {% endif %}
             </div>
                 <button class="btn btn-primary">Подтвердить</button>
             {{ form_end(form) }}

@@ -33,9 +33,15 @@ class About
      */
     private $landings;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AboutImage", mappedBy="about", cascade={"persist"})
+     */
+    private $aboutImage;
+
     public function __construct()
     {
         $this->landings = new ArrayCollection();
+        $this->aboutImage = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -98,5 +104,36 @@ class About
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * @return Collection|AboutImage[]
+     */
+    public function getAboutImage(): Collection
+    {
+        return $this->aboutImage;
+    }
+
+    public function addAboutImage(AboutImage $aboutImage): self
+    {
+        if (!$this->aboutImage->contains($aboutImage)) {
+            $this->aboutImage[] = $aboutImage;
+            $aboutImage->setAbout($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAboutImage(AboutImage $aboutImage): self
+    {
+        if ($this->aboutImage->contains($aboutImage)) {
+            $this->aboutImage->removeElement($aboutImage);
+            // set the owning side to null (unless already changed)
+            if ($aboutImage->getAbout() === $this) {
+                $aboutImage->setAbout(null);
+            }
+        }
+
+        return $this;
     }
 }

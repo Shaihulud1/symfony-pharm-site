@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\FileUpload;
 
 
 class BonusController extends AbstractController
@@ -26,13 +27,18 @@ class BonusController extends AbstractController
     /**
      * @Route("/admin/bonus/new", name="bonus_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUpload $fileUpload): Response
     {
         $bonus = new Bonus();
         $form = $this->createForm(BonusType::class, $bonus);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $bonusPicFile = $form['bonus_pic_file']->getData();
+            if($bonusPicFile){
+                $newFileName = $fileUpload->upload($bonusPicFile);
+                $bonus->setBonusPic($this->getParameter('upload_image_directory').'/'.$newFileName);  
+            }            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($bonus);
             $entityManager->flush();
@@ -59,14 +65,18 @@ class BonusController extends AbstractController
     /**
      * @Route("/admin/bonus/{id}/edit", name="bonus_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Bonus $bonus): Response
+    public function edit(Request $request, Bonus $bonus, FileUpload $fileUpload): Response
     {
         $form = $this->createForm(BonusType::class, $bonus);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $bonusPicFile = $form['bonus_pic_file']->getData();
+            if($bonusPicFile){
+                $newFileName = $fileUpload->upload($bonusPicFile, $bonus->getBonusPic());
+                $bonus->setBonusPic($this->getParameter('upload_image_directory').'/'.$newFileName);  
+            }   
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('bonus_index', [
                 'id' => $bonus->getId(),
             ]);

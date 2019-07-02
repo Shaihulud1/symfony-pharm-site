@@ -15,8 +15,11 @@
             </div>
             <div class="form-group">
                 <label>Картинка</label>
-                {{ form_widget(form.product_pic, { 'attr': {'class': 'form-control'} }) }}
-                {{ form_errors(form.product_pic) }}
+                {{ form_widget(form.product_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
+                {{ form_errors(form.product_pic_file) }}
+                {% if product.getProductPic %}
+                    <a href="{{ asset(product.getProductPic) }}" target="_blank">Текущая картинка</a>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label>URL</label>

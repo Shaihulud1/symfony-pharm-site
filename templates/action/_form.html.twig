@@ -10,13 +10,19 @@
                 </div>
                 <div class="form-group">
                     <label>Картинка</label>
-                    {{ form_widget(form.action_pic, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(form.action_pic) }}
+                    {{ form_widget(form.action_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
+                    {{ form_errors(form.action_pic_file) }}
+                    {% if action.getActionPic %}
+                        <a href="{{ asset(action.getActionPic) }}" target="_blank">Текущая картинка</a>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label>Логотип</label>
-                    {{ form_widget(form.logo_pic, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(form.logo_pic) }}
+                    {{ form_widget(form.logo_file, { 'attr': {'class': 'form-control-file'} }) }}
+                    {{ form_errors(form.logo_file) }}
+                    {% if action.getLogoPic %}
+                        <a href="{{ asset(action.getLogoPic) }}" target="_blank">Текущая картинка</a>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label>Текст</label>

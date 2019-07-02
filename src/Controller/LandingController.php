@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class LandingController extends AbstractController
@@ -18,6 +19,10 @@ class LandingController extends AbstractController
      */
     public function landingPage(Landing $landing):Response
     {
+        if($landing->getActive() != 'Y'){
+            throw new NotFoundHttpException();
+        }
+        dump($landing);
         return $this->render('landing/landing_page.html.twig', [
            'landingData' => $landing,
         ]);

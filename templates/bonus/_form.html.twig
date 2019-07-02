@@ -30,8 +30,11 @@
                 </div>
                 <div class="form-group">
                     <label>Фоновая картинка</label>
-                    {{ form_widget(form.bonus_pic, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(form.bonus_pic) }}
+                    {{ form_widget(form.bonus_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
+                    {{ form_errors(form.bonus_pic_file) }}
+                    {% if bonus.getBonusPic %}
+                        <a href="{{ asset(bonus.getBonusPic) }}" target="_blank">Текущая картинка</a>
+                    {% endif %}
                 </div>
                 <button class="btn btn-primary">Подтвердить</button>
                 {{ form_end(form) }}

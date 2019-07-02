@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use App\Service\FileUpload;
 
 class AdvantageController extends AbstractController
 {
@@ -26,13 +26,18 @@ class AdvantageController extends AbstractController
     /**
      * @Route("/admin/advantage/new", name="advantage_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUpload $fileUpload): Response
     {
         $advantage = new Advantage();
         $form = $this->createForm(AdvantageType::class, $advantage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $advantagePicFile = $form['advantage_pic_file']->getData();
+            if($advantagePicFile){
+                $newFileName = $fileUpload->upload($advantagePicFile);
+                $advantage->setAdvPic($this->getParameter('upload_image_directory').'/'.$newFileName);  
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($advantage);
             $entityManager->flush();
@@ -59,14 +64,18 @@ class AdvantageController extends AbstractController
     /**
      * @Route("/admin/advantage/{id}/edit", name="advantage_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Advantage $advantage): Response
+    public function edit(Request $request, Advantage $advantage, FileUpload $fileUpload): Response
     {
         $form = $this->createForm(AdvantageType::class, $advantage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $advantagePicFile = $form['advantage_pic_file']->getData();
+            if($advantagePicFile){
+                $newFileName = $fileUpload->upload($advantagePicFile, $advantage->getAdvPic());
+                $advantage->setAdvPic($this->getParameter('upload_image_directory').'/'.$newFileName);  
+            }
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('advantage_index', [
                 'id' => $advantage->getId(),
             ]);

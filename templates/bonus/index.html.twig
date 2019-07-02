@@ -27,7 +27,7 @@
                 <td>{{ bonus.labelText }}</td>
                 <td>{{ bonus.labelColor }}</td>
                 <td>{{ bonus.titleColor }}</td>
-                <td>{{ bonus.bonusPic }}</td>
+                <td><img src="{{ asset(bonus.getBonusPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>
                     {{ include('bonus/_delete_form.html.twig') }}
                 </td>

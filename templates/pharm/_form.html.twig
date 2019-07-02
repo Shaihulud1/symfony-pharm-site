@@ -10,8 +10,11 @@
                 </div>
                 <div class="form-group">
                     <label>Картинка</label>
-                    {{ form_widget(form.pharm_pic, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(form.pharm_pic) }}
+                    {{ form_widget(form.pharm_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
+                    {{ form_errors(form.pharm_pic_file) }}
+                    {% if pharm.getPharmPic %}
+                        <a href="{{ asset(pharm.getPharmPic) }}" target="_blank">Текущая картинка</a>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label>Координаты</label>

@@ -6,6 +6,8 @@ use App\Entity\Advantage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 class AdvantageType extends AbstractType
 {
@@ -13,7 +15,22 @@ class AdvantageType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('adv_pic')
+            ->add('advantage_pic_file', FileType::class, [
+                'mapped'      => false,
+                'required'    => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/svg+xml',
+                            'image/png'
+                        ],
+                        'maxSizeMessage'   => 'Изображение слишком большого размера',
+                        'mimeTypesMessage' => 'Изображение может быть только формата jpg, png, jpeg, svg',
+                    ])
+                ],                 
+            ])
         ;
     }
 
