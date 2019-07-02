@@ -90,9 +90,12 @@ class PharmController extends AbstractController
     /**
      * @Route("/admin/pharm/{id}", name="pharm_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Pharm $pharm): Response
+    public function delete(Request $request, Pharm $pharm, FileUpload $fileUpload): Response
     {
         if ($this->isCsrfTokenValid('delete'.$pharm->getId(), $request->request->get('_token'))) {
+            if($pharm->getPharmPic()){
+                $fileUpload->deleteExistFile($pharm->getPharmPic());
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($pharm);
             $entityManager->flush();

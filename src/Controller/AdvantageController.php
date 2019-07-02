@@ -90,9 +90,12 @@ class AdvantageController extends AbstractController
     /**
      * @Route("/admin/advantage/{id}", name="advantage_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Advantage $advantage): Response
+    public function delete(Request $request, Advantage $advantage, FileUpload $fileUpload): Response
     {
         if ($this->isCsrfTokenValid('delete'.$advantage->getId(), $request->request->get('_token'))) {
+            if($advantage->getAdvPic()){
+                $fileUpload->deleteExistFile($advantage->getAdvPic());
+            }           
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($advantage);
             $entityManager->flush();

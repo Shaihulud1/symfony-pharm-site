@@ -91,9 +91,12 @@ class BonusController extends AbstractController
     /**
      * @Route("/admin/bonus/{id}", name="bonus_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Bonus $bonus): Response
+    public function delete(Request $request, Bonus $bonus, FileUpload $fileUpload): Response
     {
         if ($this->isCsrfTokenValid('delete'.$bonus->getId(), $request->request->get('_token'))) {
+            if($bonus->getBonusPic()){
+                $fileUpload->deleteExistFile($bonus->getBonusPic());
+            }              
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($bonus);
             $entityManager->flush();

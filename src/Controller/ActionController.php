@@ -100,9 +100,12 @@ class ActionController extends AbstractController
     /**
      * @Route("/admin/action/{id}", name="action_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Action $action): Response
+    public function delete(Request $request, Action $action, FileUpload $fileUpload): Response
     {
         if ($this->isCsrfTokenValid('delete'.$action->getId(), $request->request->get('_token'))) {
+            if($action->getActionPic()){
+                $fileUpload->deleteExistFile($action->getActionPic());
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($action);
             $entityManager->flush();

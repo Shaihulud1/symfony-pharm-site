@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ advantage.id }}</td>
                 <td>{{ advantage.name }}</td>
-                <td>{{ advantage.advPic }}</td>
+                <td><a href="{{ asset(advantage.advPic) }}">{{ advantage.advPic }}</a></td>
                 <td>
                     {{ include('advantage/_delete_form.html.twig') }}
                 </td>
