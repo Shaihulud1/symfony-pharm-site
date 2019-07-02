@@ -3,63 +3,107 @@
 {% block title %}Страница{% endblock %}
 
 {% block body %}
+{{dump(landingData.pharm)}}
 <main class="section section--main">
     <div class="section__image">
         <img src="{{ asset('img/background.jpg') }}" alt="Фотография аптеки Вита" />
     </div>
     <div class="section__content">
-        <h1>Аптека №665</h1>
-        <h2>Вита-экспресс</h2>
-        <h3>г. Самара, ул. Ульяновская, 19</h3>
-        <div class="section__list">
-            <div class="section__icon">
-                <img src="{{ asset('img/vitamin.svg') }}" alt="Широкий ассортимент" />
-            </div>
-            <div>Широкий ассортимент</div>
-        </div>
-        <div class="section__list">
-            <div class="section__icon">
-                <img src="{{ asset('img/vitamin.svg') }}" alt="Широкий ассортимент" />
-            </div>
-            <div>Низкие цены</div>
-        </div>
-        <div class="section__list">
-            <div class="section__icon">
-                <img src="{{ asset('img/vitamin.svg') }}" alt="Широкий ассортимент" />
-            </div>
-            <div>Рядом с вами</div>
-        </div>
+        {% for pharm in landingData.pharm %}
+            <h1>{{pharm.name}}</h1>
+            <h2>{{pharm.type}}</h2>
+            <h3>{{pharm.address}}</h3>
+            {% for advantage in pharm.advantage %}
+                <div class="section__list">
+                    <div class="section__icon">
+                        <img src="{{ asset(advantage.getAdvPic) }}" alt="Широкий ассортимент" />
+                    </div>
+                    <div>{{advantage.name}}</div>
+                </div>
+            {% endfor %}
+        {% endfor %}
     </div>
 </main>
 <section class="section section--second">
-    <div class="section__image">
-        <img src="{{ asset('img/sale.png') }}" alt="2 + 1 бесплатно" />
-    </div>
-    <div class="section__content">
-        <h2>Соберите свой<br />Вита Микс!</h2>
-        <div class="section__disclaimer">
-            С 1 апреля по 31 июля 2019 г.
+    {% for action in landingData.action %}
+        <div class="section__image">
+            <img src="{{ asset(action.getActionPic) }}" alt="2 + 1 бесплатно" />
         </div>
-        <div class="section__icon">
-            <img src="{{ asset('img/thirdfree.png') }}" alt="Акция" />
+        <div class="section__content">
+            <h2>{{action.name|raw}}</h2>
+            <div class="section__disclaimer">
+                {{action.labelText|raw}}
+            </div>
+            <div class="section__icon">
+                <img src="{{ asset(action.getLogoPic) }}" alt="Акция" />
+            </div>
+            {{action.text|raw}}
+            <a href="{{action.url}}" class="button" target="_blank">Посмотреть все товары</a>
         </div>
-        <h3>
-            В акции участвуют товары различных категорий. Выберите два акционных
-            товара и третий, с наименьшей ценой, получите бесплатно.
-        </h3>
-        <h3 class="section__pink">
-            В акции участвуют товары различных категорий. Выберите два акционных
-            товара и третий, с наименьшей ценой, получите бесплатно.
-        </h3>
-        <a href="https://vitaexpress.ru/vitamix/" class="button" target="_blank"
-            >Посмотреть все товары</a
-        >
-    </div>
+    {% endfor %}
 </section>
 <section class="section section--third" id="about">
     <h2 class="section__title">О компании</h2>
-    <div class="slider slider--main">
-        <div class="slider slider--secondary" data-title="Информация">
+        <div class="slider slider--main">
+        {% for key, aboutData in landingData.about %}
+            <div class="slider slider--secondary" data-title="{{aboutData.name}}">
+                <div>
+                    {{aboutData.content|raw}}
+                </div>
+                <div>
+                    <div class="slider__items">
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-1.png') }}" alt="Выбор" />
+                            </div>
+                            <div class="item__text">Широчайший выбор товаров</div>
+                        </div>
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-2.png') }}" alt="Обслуживание" />
+                            </div>
+                            <div class="item__text">
+                                Быстрое и качественное обслуживание
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-3.png') }}" alt="Товары для всей семьи" />
+                            </div>
+                            <div class="item__text">
+                                Товары для мам и малышей
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-4.png') }}" alt="Косметика" />
+                            </div>
+                            <div class="item__text">
+                                Элитная косметика от ведущих производителей
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-5.png') }}" alt="Бонусы" />
+                            </div>
+                            <div class="item__text">
+                                Низкие цены и удобная бонусная программа
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset('img/item-6.png') }}" alt="Подход" />
+                            </div>
+                            <div class="item__text">
+                                Индивидуальный подход к каждому клиенту
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        {# <div class="slider slider--secondary" data-title="Информация">
             <div>
                 <h4>
                     Компания «Вита» была основана 17 февраля 1993 года в г. Самара. За
@@ -187,8 +231,9 @@
                     Присоединяйтесь и Вы. Поможем детям вместе!
                 </p>
             </div>
-        </div>
+        </div> #}
     </div>
 </section>
+            {{dump(landingData.about ) }}
 <section class="section section--map" id="map"></section>
 {% endblock %}
