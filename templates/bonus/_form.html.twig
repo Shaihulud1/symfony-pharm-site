@@ -29,6 +29,11 @@
                     {{ form_errors(form.title_color) }}
                 </div>
                 <div class="form-group">
+                    <label>Url</label>
+                    {{ form_widget(form.url, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.url) }}
+                </div>
+                <div class="form-group">
                     <label>Фоновая картинка</label>
                     {{ form_widget(form.bonus_pic_file, { 'attr': {'class': 'form-control-file'} }) }}
                     {{ form_errors(form.bonus_pic_file) }}

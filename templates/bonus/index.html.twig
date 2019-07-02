@@ -14,6 +14,7 @@
                 <th>Текст плашки</th>
                 <th>Цвет плашки</th>
                 <th>Цвет текста</th>
+                <th>Url</th>
                 <th>Картинка</th>
                 <th>Действия</th>
             </tr>
@@ -27,6 +28,7 @@
                 <td>{{ bonus.labelText }}</td>
                 <td>{{ bonus.labelColor }}</td>
                 <td>{{ bonus.titleColor }}</td>
+                <td>{{ bonus.url }}</td>
                 <td><img src="{{ asset(bonus.getBonusPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>
                     {{ include('bonus/_delete_form.html.twig') }}

@@ -82,6 +82,7 @@ class LandingExample extends Fixture
         $bonus->setText('Получите карту бесплатно<br>
 Накопите бонусные баллы<br>
 Оплачивайте бонусами до 80%<br>');
+        $bonus->setUrl('https://vk.com/aptekivita?w=page-18944592_54802862');
         $bonus->setLabelText('БОНУСНАЯ КАРТА');
         $bonus->setLabelColor('#e21c41');
         $bonus->setTitleColor('#009f50');
@@ -126,14 +127,14 @@ class LandingExample extends Fixture
         $adv1->setAdvPic('img/img_example/ad1.svg');
         $adv2 = new Advantage;
         $adv2->setName('Низкие цены');
-        $adv2->setAdvPic('img/img_example/ad2.svg');
+        $adv2->setAdvPic('img/img_example/discount.svg');
         $adv3 = new Advantage;
         $adv3->setName('Рядом с вами');
-        $adv3->setAdvPic('img/img_example/ad3.svg');
+        $adv3->setAdvPic('img/img_example/destination.svg');
         $pharm1->addAdvantage($adv1);
         $pharm1->addAdvantage($adv2);
         $pharm1->addAdvantage($adv3);
-        $pharm2 =  new Pharm;
+        $pharm2 = new Pharm;
         $pharm2->setName('Аптека 665');
         $pharm2->setCoords('2031,43 5324,12');
         $pharm2->setPharmPic('img/img_example/pharm.jpg');

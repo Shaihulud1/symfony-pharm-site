@@ -19,6 +19,7 @@ class BonusType extends AbstractType
             ->add('label_text')
             ->add('label_color')
             ->add('title_color')
+            ->add('url')
             ->add('bonus_pic_file', FileType::class, [
                 'mapped'      => false,
                 'required'    => false,
