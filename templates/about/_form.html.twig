@@ -13,11 +13,11 @@
                     {{ form_widget(form.content, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.content) }}
                 </div>
-                <div class="form-group">
+                {# <div class="form-group">
                     <label>Картинки</label>
                     {{ form_widget(form.about_images_files, { 'attr': {'class': 'form-control-file'} }) }}
                     {{ form_errors(form.about_images_files) }}
-                </div>
+                </div> #}
 
                 <button class="btn btn-primary">Подтвердить</button>
                 {{ form_end(form) }}
