@@ -22,7 +22,6 @@ class LandingController extends AbstractController
         if($landing->getActive() != 'Y'){
             throw new NotFoundHttpException();
         }
-        dump($landing);
         return $this->render('landing/landing_page.html.twig', [
            'landingData' => $landing,
         ]);
