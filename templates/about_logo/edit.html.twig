@@ -1,0 +1,13 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Edit AboutLogo{% endblock %}
+
+{% block body %}
+    <h1>Изменение логотипа описания</h1>
+
+    {{ include('about_logo/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('about_logo_index') }}" class="btn btn-primary">К списку</a>
+
+    {{ include('about_logo/_delete_only_form.html.twig') }}
+{% endblock %}

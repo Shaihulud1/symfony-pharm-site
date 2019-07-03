@@ -33,7 +33,7 @@ class ActionController extends AbstractController
         $form = $this->createForm(ActionType::class, $action);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $logoFile = $form['logo_file']->getData();
+            $logoFile = $form['logo_pic_file']->getData();
             if($logoFile){
                 $newFileName = $fileUpload->upload($logoFile);
                 $action->setLogoPic($this->getParameter('upload_image_directory').'/'.$newFileName);  

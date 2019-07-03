@@ -38,10 +38,26 @@ class About
      */
     private $aboutImage;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $slide_text;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isSlide2Text;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\AboutLogo", inversedBy="abouts")
+     */
+    private $aboutLogo;
+
     public function __construct()
     {
         $this->landings = new ArrayCollection();
         $this->aboutImage = new ArrayCollection();
+        $this->aboutLogo = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,6 +148,56 @@ class About
             if ($aboutImage->getAbout() === $this) {
                 $aboutImage->setAbout(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getSlideText(): ?string
+    {
+        return $this->slide_text;
+    }
+
+    public function setSlideText(?string $slide_text): self
+    {
+        $this->slide_text = $slide_text;
+
+        return $this;
+    }
+
+    public function getIsSlide2Text(): ?bool
+    {
+        return $this->isSlide2Text;
+    }
+
+    public function setIsSlide2Text(bool $isSlide2Text): self
+    {
+        $this->isSlide2Text = $isSlide2Text;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AboutLogo[]
+     */
+    public function getAboutLogo(): Collection
+    {
+        return $this->aboutLogo;
+    }
+
+    public function addAboutLogo(AboutLogo $aboutLogo): self
+    {
+        if (!$this->aboutLogo->contains($aboutLogo)) {
+            $this->aboutLogo[] = $aboutLogo;
+        }
+
+        return $this;
+    }
+
+    public function removeAboutLogo(AboutLogo $aboutLogo): self
+    {
+        if ($this->aboutLogo->contains($aboutLogo)) {
+            $this->aboutLogo->removeElement($aboutLogo);
         }
 
         return $this;

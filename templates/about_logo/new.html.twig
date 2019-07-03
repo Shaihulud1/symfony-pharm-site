@@ -1,0 +1,11 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}New AboutLogo{% endblock %}
+
+{% block body %}
+    <h1>Создания нового логотипа для описания</h1>
+
+    {{ include('about_logo/_form.html.twig') }}
+
+    <a href="{{ path('about_logo_index') }}" class="btn btn-primary">К списку</a>
+{% endblock %}

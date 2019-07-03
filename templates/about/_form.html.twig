@@ -13,11 +13,21 @@
                     {{ form_widget(form.content, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.content) }}
                 </div>
-                {# <div class="form-group">
-                    <label>Картинки</label>
-                    {{ form_widget(form.about_images_files, { 'attr': {'class': 'form-control-file'} }) }}
-                    {{ form_errors(form.about_images_files) }}
-                </div> #}
+                <div class="form-check form-group">
+                    {{ form_widget(form.isSlide2Text, { 'attr': {'class' : 'form-check-input disable-switcher'} }) }}
+                    <label class="form-check-label">Текст на месте второго слайда</label>
+                    {{ form_errors(form.isSlide2Text) }}
+                </div>
+                <div class="form-group">
+                    <label>Текст на втором слайде</label>
+                    {{ form_widget(form.slide_text, { 'attr': {'class': 'form-control disable-false'} }) }}
+                    {{ form_errors(form.slide_text) }}
+                </div>
+                <div class="form-group">
+                    <label>Логотипы на втором слайде (<a href="{{path('about_logo_index')}}">Добавить новый логотип</a>)</label>
+                    {{ form_widget(form.aboutLogo, { 'attr': {'class': 'form-control-file disable-true'} }) }}
+                    {{ form_errors(form.aboutLogo) }}
+                </div>
 
                 <button class="btn btn-primary">Подтвердить</button>
                 {{ form_end(form) }}
