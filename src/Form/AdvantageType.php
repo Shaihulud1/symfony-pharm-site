@@ -15,6 +15,7 @@ class AdvantageType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('advantage_pic_file', FileType::class, [
                 'mapped'      => false,
                 'required'    => false,

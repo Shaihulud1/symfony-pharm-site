@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Сортировка</th>
                 <th>Название</th>
                 <th>Цена</th>
                 <th>Картинка</th>
@@ -19,6 +20,7 @@
         {% for product in products %}
             <tr>
                 <td>{{ product.id }}</td>
+                <td>{{ product.sort }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td><img src="{{ asset(product.getProductPic) }}" class="admin-img-preview" alt="Пусто"></td>

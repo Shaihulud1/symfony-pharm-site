@@ -43,6 +43,11 @@ class Product
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sort = 1;
+
     public function __construct()
     {
         $this->landings = new ArrayCollection();
@@ -130,6 +135,18 @@ class Product
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getSort(): ?int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(?int $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

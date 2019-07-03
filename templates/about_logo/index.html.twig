@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Сортировка</th>
                 <th>Название</th>
                 <th>Файл логотипа</th>
                 <th>Действия</th>
@@ -18,6 +19,7 @@
         {% for about_logo in about_logos %}
             <tr>
                 <td>{{ about_logo.id }}</td>
+                <td>{{ about_logo.sort }}</td>
                 <td>{{ about_logo.name }}</td>
                 <td>{{ about_logo.logoPic }}</td>
                 <td>

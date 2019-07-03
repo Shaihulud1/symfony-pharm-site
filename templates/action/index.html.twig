@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Сортировка</th>
                 <th>Название</th>
                 <th>Картинка</th>
                 <th>Логотип</th>
@@ -24,6 +25,7 @@
         {% for action in actions %}
             <tr>
                 <td>{{ action.id }}</td>
+                <td>{{ action.sort }}</td>
                 <td>{{ action.name }}</td>
                 <td><img src="{{ asset(action.getActionPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td><img src="{{ asset(action.getLogoPic) }}" class="admin-img-preview" alt="Пусто"></td>

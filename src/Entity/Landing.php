@@ -52,11 +52,13 @@ class Landing
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Pharm", inversedBy="landings", cascade={"persist"})
+     * @ORM\OrderBy({"sort" = "DESC"})
      */
     private $pharm;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\About", inversedBy="landings", cascade={"persist"})
+     * @ORM\OrderBy({"sort" = "DESC"})     
      */
     private $about;
 
@@ -67,11 +69,13 @@ class Landing
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Action", inversedBy="landings", cascade={"persist"})
+     * @ORM\OrderBy({"sort" = "DESC"})     
      */
     private $action;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="landings", cascade={"persist"})
+     * @ORM\OrderBy({"sort" = "DESC"})
      */
     private $product;
 

@@ -16,6 +16,7 @@ class AboutType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('content')
             ->add('isSlide2Text', CheckboxType::class,[
                 'required' => false,

@@ -63,6 +63,11 @@ class Action
      */
     private $landings;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sort = 1;
+
     public function __construct()
     {
         $this->landings = new ArrayCollection();
@@ -200,5 +205,17 @@ class Action
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getSort(): ?int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(?int $sort): self
+    {
+        $this->sort = $sort;
+
+        return $this;
     }
 }

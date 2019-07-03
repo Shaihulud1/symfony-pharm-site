@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Сортировка</th>
                 <th>Название</th>
                 <th>Картинка</th>
                 <th>Координаты</th>
@@ -21,6 +22,7 @@
         {% for pharm in pharms %}
             <tr>
                 <td>{{ pharm.id }}</td>
+                <td>{{ pharm.sort }}</td>
                 <td>{{ pharm.name }}</td>
                 <td><img src="{{ asset(pharm.getPharmPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>{{ pharm.coords }}</td>

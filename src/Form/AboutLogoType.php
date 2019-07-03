@@ -15,6 +15,7 @@ class AboutLogoType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('logo_pic_file', FileType::class, [
                 'mapped'      => false,
                 'required'    => false,

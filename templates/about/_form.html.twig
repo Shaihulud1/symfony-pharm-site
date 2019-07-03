@@ -9,6 +9,11 @@
                     {{ form_errors(form.name) }}
                 </div>
                 <div class="form-group">
+                    <label>Сортировка</label>
+                    {{ form_widget(form.sort, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.sort) }}
+                </div>
+                <div class="form-group">
                     <label>Текст</label>
                     {{ form_widget(form.content, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.content) }}

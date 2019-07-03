@@ -15,6 +15,7 @@ class ActionType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('action_pic_file', FileType::class, [
                 'mapped'      => false,
                 'required'    => false,

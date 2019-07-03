@@ -50,8 +50,14 @@ class About
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\AboutLogo", inversedBy="abouts")
+     * @ORM\OrderBy({"sort" = "DESC"})
      */
     private $aboutLogo;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sort = 1;
 
     public function __construct()
     {
@@ -199,6 +205,18 @@ class About
         if ($this->aboutLogo->contains($aboutLogo)) {
             $this->aboutLogo->removeElement($aboutLogo);
         }
+
+        return $this;
+    }
+
+    public function getSort(): ?int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(?int $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

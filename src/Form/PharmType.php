@@ -15,6 +15,7 @@ class PharmType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('pharm_pic_file', FileType::class, [
                 'mapped'      => false,
                 'required'    => false,

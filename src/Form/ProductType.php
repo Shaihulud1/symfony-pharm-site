@@ -15,6 +15,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('sort')
             ->add('price')
             ->add('product_pic_file', FileType::class, [
                 'mapped'      => false,
