@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Landing;
 use App\Entity\About;
+use App\Entity\AboutLogo;
 use App\Entity\Bonus;
 use App\Entity\Action;
 use App\Entity\Product;
@@ -25,6 +26,7 @@ class LandingExample extends Fixture
         $landing->setActive(true);
         $aboutInfo = new About;
         $aboutInfo->setName('Информация');
+        $aboutInfo->setSort(1);
         $aboutInfo->setContent("<h4>
 							Компания «Вита» была основана 17 февраля 1993 года в г. Самара. За
 							многие годы, непрерывно развиваясь, компания обеспечила себе
@@ -40,9 +42,48 @@ class LandingExample extends Fixture
 							Говоря о здоровье, мы имеем ввиду не только его медицинские
 							аспекты, но и поддержание хорошей формы, здоровое питание и в
 							целом умение вести здоровый образ жизни.
-						</p>");
+                        </p>");
+        $aboutLogo1 = new AboutLogo;
+        $aboutLogo1->setName('Широчайший выбор товаров');
+        $aboutLogo1->setSort(6);
+        $aboutLogo1->setLogoPic('img/img_example/al1.png');
+
+        $aboutLogo2 = new AboutLogo;
+        $aboutLogo2->setName('Быстрое и качественное обслуживание');
+        $aboutLogo2->setSort(5);
+        $aboutLogo2->setLogoPic('img/img_example/al2.png');
+
+        $aboutLogo3 = new AboutLogo;
+        $aboutLogo3->setName('Товары для мам и малышей');
+        $aboutLogo3->setSort(4);
+        $aboutLogo3->setLogoPic('img/img_example/al3.png');
+        
+        $aboutLogo4 = new AboutLogo;
+        $aboutLogo4->setName('Элитная косметика от ведущих производителей');
+        $aboutLogo4->setSort(3);
+        $aboutLogo4->setLogoPic('img/img_example/al4.png');
+
+        $aboutLogo5 = new AboutLogo;
+        $aboutLogo5->setName('Низкие цены и удобная бонусная программа');
+        $aboutLogo5->setSort(2);
+        $aboutLogo5->setLogoPic('img/img_example/al5.png');
+
+        $aboutLogo6 = new AboutLogo;
+        $aboutLogo6->setName('Индивидуальный подход к каждому клиенту');
+        $aboutLogo6->setSort(1);
+        $aboutLogo6->setLogoPic('img/img_example/al6.png');
+
+        $aboutInfo->addAboutLogo($aboutLogo1);
+        $aboutInfo->addAboutLogo($aboutLogo2);
+        $aboutInfo->addAboutLogo($aboutLogo3);
+        $aboutInfo->addAboutLogo($aboutLogo4);
+        $aboutInfo->addAboutLogo($aboutLogo5);
+        $aboutInfo->addAboutLogo($aboutLogo6);
+
+
         $aboutControll = new About;
         $aboutControll->setName('Контроль качества');
+        $aboutControll->setSort(2);
         $aboutControll->setContent("<h4>
 							Аптеки Вита дают своим клиентам 100% гарантию качества товаров.
 						</h4>
@@ -56,8 +97,27 @@ class LandingExample extends Fixture
 							лекарственных средств, перед тем, как они поступают в продажу.
 							Проверка эта проходит в несколько этапов.
                         </p>");
+        $aboutControll->setSlideText("						<p>
+							Сначала проводится ревизия документов и предварительная проверка
+							товара по трем показателям: описание, упаковка, маркировка. Затем
+							осуществляется дополнительный входной контроль качества
+							медикаментов - отбор средних проб при поступлении препарата на
+							склад.
+						</p>
+						<p>
+							Образцы из каждой партии сдаются на контроль в Региональные Центры
+							контроля качества и сертификации ЛС. После проверки препарата на
+							соответствие стандартам качества выдается разрешение на его
+							продажу и присваивается региональный регистрационный номер.
+						</p>
+						<p>
+							Мы сотрудничаем только с крупными поставщиками, которые очень
+							дорожат своей репутацией.
+                        </p>");
+        $aboutControll->setIsSlide2Text(true);
         $aboutWisdom = new About;
         $aboutWisdom->setName("Благотворительность");
+        $aboutWisdom->setSort(3);
         $aboutWisdom->setContent("<p>
 							Каждый ребенок имеет право на счастливое детство, беззаботную
 							улыбку и возможность быть полноправным членом общества, в котором

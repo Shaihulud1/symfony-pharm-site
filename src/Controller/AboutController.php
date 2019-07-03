@@ -34,7 +34,7 @@ class AboutController extends AbstractController
             if($about->getIsSlide2Text()){
                 $about->clearAboutLogo();
             }else{
-                $about->setSlideText(false);
+                $about->setSlideText(null);
             }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($about);
