@@ -21,7 +21,7 @@
                 <td>{{ advantage.id }}</td>
                 <td>{{ advantage.sort }}</td>
                 <td>{{ advantage.name }}</td>
-                <td><a href="{{ asset(advantage.advPic) }}">{{ advantage.advPic }}</a></td>
+                <td><img src="{{ asset(advantage.advPic) }}" class="admin-img-preview" alt="Пусто"></td>
                 <td>
                     {{ include('advantage/_delete_form.html.twig') }}
                 </td>

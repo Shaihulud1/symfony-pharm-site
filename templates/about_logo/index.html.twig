@@ -21,7 +21,7 @@
                 <td>{{ about_logo.id }}</td>
                 <td>{{ about_logo.sort }}</td>
                 <td>{{ about_logo.name }}</td>
-                <td>{{ about_logo.logoPic }}</td>
+                <td><img src="{{ asset(about_logo.logoPic) }}" alt="Пусто" class="admin-img-preview"></td>
                 <td>
                     {{ include('about_logo/_delete_form.html.twig') }}
                 </td>
