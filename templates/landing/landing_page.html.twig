@@ -57,60 +57,28 @@
     <h2 class="section__title">О компании</h2>
     <div class="slider slider--main">
     {% for key, aboutData in landingData.about %}
-        <div class="slider slider--secondary slider--one-item" data-title="{{aboutData.name}}">
+        <div class="slider slider--secondary {% if aboutData.slideText == false and aboutData.aboutLogo|length < 1 %} slider--one-item {% endif %}" data-title="{{aboutData.name}}">
             <div>
                 {{aboutData.content|raw}}
             </div>
-            {# <div>
+            {% if aboutData.slideText %}
+            <div>
+                {{aboutData.slideText|raw}}
+            </div>
+            {% elseif aboutData.aboutLogo|length > 1 %}
+            <div>
                 <div class="slider__items">
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-1.png') }}" alt="Выбор" />
+                    {% for logo in aboutData.aboutLogo %}
+                        <div class="item">
+                            <div class="item__image">
+                                <img src="{{ asset(logo.logoPic) }}" alt="{{logo.name}}" />
+                            </div>
+                            <div class="item__text">{{logo.name}}</div>
                         </div>
-                        <div class="item__text">Широчайший выбор товаров</div>
-                    </div>
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-2.png') }}" alt="Обслуживание" />
-                        </div>
-                        <div class="item__text">
-                            Быстрое и качественное обслуживание
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-3.png') }}" alt="Товары для всей семьи" />
-                        </div>
-                        <div class="item__text">
-                            Товары для мам и малышей
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-4.png') }}" alt="Косметика" />
-                        </div>
-                        <div class="item__text">
-                            Элитная косметика от ведущих производителей
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-5.png') }}" alt="Бонусы" />
-                        </div>
-                        <div class="item__text">
-                            Низкие цены и удобная бонусная программа
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item__image">
-                            <img src="{{ asset('img/item-6.png') }}" alt="Подход" />
-                        </div>
-                        <div class="item__text">
-                            Индивидуальный подход к каждому клиенту
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            </div> #}
+            </div>
+            {% endif %}
         </div>
     {% endfor %}
     </div>

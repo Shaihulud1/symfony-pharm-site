@@ -26,7 +26,7 @@ class LandingExample extends Fixture
         $landing->setActive(true);
         $aboutInfo = new About;
         $aboutInfo->setName('Информация');
-        $aboutInfo->setSort(1);
+        $aboutInfo->setSort(3);
         $aboutInfo->setContent("<h4>
 							Компания «Вита» была основана 17 февраля 1993 года в г. Самара. За
 							многие годы, непрерывно развиваясь, компания обеспечила себе
@@ -117,7 +117,7 @@ class LandingExample extends Fixture
         $aboutControll->setIsSlide2Text(true);
         $aboutWisdom = new About;
         $aboutWisdom->setName("Благотворительность");
-        $aboutWisdom->setSort(3);
+        $aboutWisdom->setSort(1);
         $aboutWisdom->setContent("<p>
 							Каждый ребенок имеет право на счастливое детство, беззаботную
 							улыбку и возможность быть полноправным членом общества, в котором
@@ -184,7 +184,7 @@ class LandingExample extends Fixture
         $pharm1->setAddress('г. Самара, ул. Ульяновская, 88');
         $adv1 = new Advantage;
         $adv1->setName('Широкий ассортимент');
-        $adv1->setAdvPic('img/img_example/ad1.svg');
+        $adv1->setAdvPic('img/img_example/vitamin.svg');
         $adv2 = new Advantage;
         $adv2->setName('Низкие цены');
         $adv2->setAdvPic('img/img_example/discount.svg');
@@ -194,7 +194,7 @@ class LandingExample extends Fixture
         $pharm1->addAdvantage($adv1);
         $pharm1->addAdvantage($adv2);
         $pharm1->addAdvantage($adv3);
-        $pharm2 = new Pharm;
+        /*$pharm2 = new Pharm;
         $pharm2->setName('Аптека 665');
         $pharm2->setCoords('2031,43 5324,12');
         $pharm2->setPharmPic('img/img_example/pharm.jpg');
@@ -212,8 +212,9 @@ class LandingExample extends Fixture
         $pharm2->addAdvantage($adv1);
         $pharm2->addAdvantage($adv2);
         $pharm2->addAdvantage($adv3);
-        $landing->addPharm($pharm1);
         $landing->addPharm($pharm2);
+        */
+        $landing->addPharm($pharm1);
         // $product = new Product();
         // $manager->persist($product);
         $manager->persist($landing);

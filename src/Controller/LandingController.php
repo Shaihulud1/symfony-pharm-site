@@ -30,6 +30,7 @@ class LandingController extends AbstractController
 
     /**
      * @Route("/admin/landing", name="landing_index", methods={"GET"})
+     * @Route("/admin", name="admin_main_page", methods={"GET"})
      */
     public function index(LandingRepository $landingRepository): Response
     {

@@ -49,7 +49,7 @@ class About
     private $isSlide2Text;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\AboutLogo", inversedBy="abouts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\AboutLogo", inversedBy="abouts", cascade={"persist"})
      * @ORM\OrderBy({"sort" = "DESC"})
      */
     private $aboutLogo;
