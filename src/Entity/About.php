@@ -209,6 +209,11 @@ class About
         return $this;
     }
 
+    public function clearAboutLogo()
+    {
+        $this->aboutLogo = new ArrayCollection();
+    }
+
     public function getSort(): ?int
     {
         return $this->sort;

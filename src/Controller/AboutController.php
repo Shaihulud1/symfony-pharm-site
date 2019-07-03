@@ -31,12 +31,14 @@ class AboutController extends AbstractController
         $form = $this->createForm(AboutType::class, $about);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $aboutImages = $form['about_images_files']->getData();
-            dump($aboutImages);
+            if($about->getIsSlide2Text()){
+                $about->clearAboutLogo();
+            }else{
+                $about->setSlideText(false);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($about);
             $entityManager->flush();
-
             return $this->redirectToRoute('about_index');
         }
 

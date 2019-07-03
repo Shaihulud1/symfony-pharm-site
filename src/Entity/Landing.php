@@ -11,8 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Landing
 {
-    const PHONE = 'значение константы';
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
