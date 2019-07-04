@@ -27,7 +27,7 @@
 					<a href="#map" class="toolbar__link">Аптека на карте</a>
 				</div>
 			</div>
-			<a href="tel:+78007550003"><span class="icon-phone"></span> 8 800 755 00 03</a>
+			<a href="tel:+78007550003"><span class="icon-phone"></span> {{landingData.getPhone}}</a>
 		</div>
 		<header class="toolbar">
 			<a href="#" class="toolbar__logo">
@@ -40,6 +40,7 @@
 			</menu>
 		</header>
         {% block body %}{% endblock %}
+		{% if landingData.getRequisiteRight or landingData.getRequisiteLeft %}
         <footer class="footer">
 			<div class="footer__top">
 				<button class="footer__button">Реквизиты</button>
@@ -47,30 +48,16 @@
 			<div class="footer__hidden">
 				<div class="footer__info">
 					<div class="footer__column">
-						<h3>Аптеки "Вита"</h3>
-						<p>
-							ООО «Астра»<br />
-							Лицензия на фармацевтическую деятельность № ЛО-63-02-002211 от 18
-							февраля 2019 г.
-						</p>
+						{{landingData.getRequisiteLeft|raw}}
 					</div>
 					<div class="footer__column">
-						<p>
-							Адрес юридический 443070 г. Самара ул. Дзержинского, 46а<br />
-							Адрес почтовый 443070 г. Самара ул. Дзержинского, 46а
-						</p>
-						<p>
-							ОГРН: 1026303506778<br />
-							ИНН: 6367656366<br />
-							КПП: 631501001<br />
-							ОКПО: 48165609<br />
-							ОКВЭД: 52.31
-						</p>
+						{{landingData.getRequisiteRight|raw}}
 					</div>
 				</div>
 			</div>
 			<p class="footer__copyright">Интернет-аптека Vita © 2019</p>
 		</footer>
+		{% endif %}
         {% block javascripts %}
             <script src="{{ asset('dist/js/libs.js') }}"></script>
             <script src="{{ asset('dist/js/index.js') }}"></script>

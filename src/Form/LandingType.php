@@ -22,6 +22,8 @@ class LandingType extends AbstractType
             ->add('bonus')
             ->add('action')
             ->add('product')
+            ->add('requisite_right')
+            ->add('requisite_left')
         ;
     }
 

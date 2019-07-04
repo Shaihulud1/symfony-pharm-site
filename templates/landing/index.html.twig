@@ -2,6 +2,7 @@
 
 {% block title %}Landing index{% endblock %}
 
+
 {% block body %}
     <h1>Список лэндингов</h1>
 
@@ -13,6 +14,8 @@
                 <th>Код</th>
                 <th>Телефон</th>
                 <th>Активность</th>
+                <th>Реквизиты слева</th>
+                <th>Реквизиты справа</th>
                 <th>Дата добавление</th>
                 <th>Дата изменения</th>
                 <th>Действия</th>
@@ -26,6 +29,8 @@
                 <td>{{ landing.code }}</td>
                 <td>{{ landing.phone }}</td>
                 <td>{{ landing.active ? 'Да' : 'Нет' }}</td>
+                <td>{{ landing.getRequisiteLeft }}</td>
+                <td>{{ landing.getRequisiteRight }}</td>
                 <td>{{ landing.createdAt ? landing.createdAt|date('d-m-Y H:i') : '' }}</td>
                 <td>{{ landing.updatedAt ? landing.updatedAt|date('d-m-Y H:i') : '' }}</td>
                 <td>

@@ -77,6 +77,16 @@ class Landing
      */
     private $product;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $requisite_left;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $requisite_right;
+
     public function __construct()
     {
         $this->pharm = new ArrayCollection();
@@ -282,5 +292,29 @@ class Landing
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getRequisiteLeft(): ?string
+    {
+        return $this->requisite_left;
+    }
+
+    public function setRequisiteLeft(?string $requisite_left): self
+    {
+        $this->requisite_left = $requisite_left;
+
+        return $this;
+    }
+
+    public function getRequisiteRight(): ?string
+    {
+        return $this->requisite_right;
+    }
+
+    public function setRequisiteRight(?string $requisite_right): self
+    {
+        $this->requisite_right = $requisite_right;
+
+        return $this;
     }
 }

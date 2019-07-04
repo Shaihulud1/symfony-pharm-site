@@ -43,6 +43,16 @@
                     {{ form_widget(form.pharm, { 'attr': {'class': 'form-control'} }) }}
                     {{ form_errors(form.pharm) }}
                 </div>
+                <div class="form-group">
+                    <label>Реквизиты слева</label>
+                    {{ form_widget(form.requisite_left, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.requisite_left) }}
+                </div>
+                <div class="form-group">
+                    <label>Реквизиты справа</label>
+                    {{ form_widget(form.requisite_right, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.requisite_right) }}
+                </div>
                 <div class="form-check form-group">
                     {{ form_widget(form.active, { 'attr': {'class': 'form-check-input'} }) }}
                     <label class="form-check-label">Активность</label>
